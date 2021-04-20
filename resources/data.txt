@@ -1,0 +1,14 @@
+city
+northside,city
+southside,city
+test,city
+test1,test
+test2,test1
+test3,test2,h=5,dm=3.8
+test4,test2,h=5
+test5,test2,h=5
+test6,test2,h=5
+test7,test2,h=5
+building1,northside,h=675.015,dm=550.8
+building2,southside,s=444.2,em=540.1,da=97.9
+building3,southside,ee=10956
