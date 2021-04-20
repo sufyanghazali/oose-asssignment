@@ -101,3 +101,4 @@ public class PowerConsumption
 
         return str;
     }
+}
