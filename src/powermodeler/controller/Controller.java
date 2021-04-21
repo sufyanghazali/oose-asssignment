@@ -49,7 +49,6 @@ public class Controller
                     String category = powerConsumption[0];
 
                     // TODO: need to validate if this is a number
-
                     double power = Double.parseDouble(powerConsumption[1]);
 
                     ((LeafNode) node).addPowerConsumption(category, power);
@@ -90,7 +89,6 @@ public class Controller
                     fileStream.close();
                 } catch (IOException e2)
                 {
-
                 }
             }
             System.out.println("Error in writing to file: " + e.getMessage());

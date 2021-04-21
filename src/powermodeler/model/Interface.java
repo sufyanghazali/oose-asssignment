@@ -1,13 +1,47 @@
 package powermodeler.model;
 
-public interface Interface
+public abstract class Interface
 {
+    private String name;
+    private CompositeNode parent;
 
-    String getName();
+    public Interface()
+    {
+        this.name = "";
+        this.parent = null;
+    }
 
-    void setParent(CompositeNode node);
+    public Interface(String name)
+    {
+        this.name = name;
+        parent = null;
+    }
 
-    Interface find(String name);
+    public Interface(String name, CompositeNode parent)
+    {
+        this(name);
+        this.parent = parent;
+    }
 
-    boolean isLeaf();
+    public String getName()
+    {
+        return name;
+    }
+
+    public CompositeNode getParent()
+    {
+        return parent;
+    }
+
+    public void setParent(CompositeNode parent)
+    {
+        this.parent = parent;
+    }
+
+    public boolean isLeaf()
+    {
+        return false;
+    }
+
+    abstract Interface find(String name);
 }

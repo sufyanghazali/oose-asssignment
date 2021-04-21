@@ -8,8 +8,6 @@ import static powermodeler.model.PowerConsumption.CATEGORIES;
 
 public class Util
 {
-//    private static final String[] CATEGORIES = {"dm", "da", "de", "em", "ea", "ee", "h", "s"};
-
     public CompositeNode generateData()
     {
         // generate random int 1 - 5

@@ -2,52 +2,37 @@ package powermodeler.model;
 
 import java.util.*;
 
-public class CompositeNode implements Interface
+public class CompositeNode extends Interface
 {
-    private String name;
-    private Interface parent;
+    //    private String name;
+//    private CompositeNode parent;
     private List<Interface> children;
 
     public CompositeNode()
     {
-        name = "";
-        parent = null;
+        super();
         children = new LinkedList<>();
     }
 
     public CompositeNode(String name)
     {
-        this();
-        this.name = name;
+        super(name);
+        children = new LinkedList<>();
     }
 
     public CompositeNode(String name, CompositeNode parent)
     {
-        this();
-        this.name = name;
-        this.parent = parent;
+        super(name, parent);
+        children = new LinkedList<>();
     }
 
     @Override
-    public String getName()
+    public Interface find(String name)
     {
-        return name;
-    }
-
-    @Override
-    public void setParent(CompositeNode parent)
-    {
-        this.parent = parent;
-    }
-
-    @Override
-    public LeafNode find(String name)
-    {
-        LeafNode target = null;
-
+        Interface target = null;
         for (Interface child : children)
         {
-            target = (LeafNode) child.find(name);
+            target = child.find(name);
         }
         return target;
     }
@@ -55,19 +40,14 @@ public class CompositeNode implements Interface
     @Override
     public String toString()
     {
-        String str = name;
-        if (parent != null)
+        String str = super.getName();
+        if (super.getParent() != null)
         {
-            str += ", " + parent.getName();
+            str += ", " + super.getParent().getName();
         }
         return str;
     }
 
-    @Override
-    public boolean isLeaf()
-    {
-        return false;
-    }
 
     public void addChild(Interface child)
     {

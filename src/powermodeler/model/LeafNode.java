@@ -3,62 +3,35 @@ package powermodeler.model;
 import java.text.DecimalFormat;
 import java.util.Map;
 
-public class LeafNode implements Interface
+public class LeafNode extends Interface
 {
-
-    private String name;
-    private CompositeNode parent;
     private PowerConsumption powerConsumption;
 
     public LeafNode()
     {
-        name = "";
-        parent = null;
+        super();
         powerConsumption = new PowerConsumption();
     }
 
     public LeafNode(String name)
     {
-        this();
-        this.name = name;
+        super(name);
+        powerConsumption = new PowerConsumption();
     }
 
     public LeafNode(String name, CompositeNode parent)
     {
-        this();
-        this.name = name;
-        this.parent = parent;
+        super(name, parent);
+        powerConsumption = new PowerConsumption();
     }
 
-    @Override
-    public String getName()
-    {
-        return name;
-    }
-
-    @Override
-    public void setParent(CompositeNode parent)
-    {
-        this.parent = parent;
-    }
-
-    @Override
-    public LeafNode find(String name)
-    {
-        LeafNode found = null;
-        if (this.name.equals(name))
-        {
-            found = this;
-        }
-        return found;
-    }
 
     @Override
     public String toString()
     {
         DecimalFormat df = new DecimalFormat("#######.#");
 
-        String str = name + ", " + parent.getName();
+        String str = super.getName() + ", " + super.getParent().getName();
         Map<String, Double> pc = powerConsumption.getValues();
 
         for (String category : pc.keySet())
@@ -68,6 +41,17 @@ public class LeafNode implements Interface
         }
 
         return str;
+    }
+
+    @Override
+    public Interface find(String name)
+    {
+        Interface found = null;
+        if (super.getName().equals(name))
+        {
+            found = this;
+        }
+        return found;
     }
 
     @Override

@@ -25,9 +25,11 @@ class PowerModeler
                 Tree tree3 = new Tree(util.generateData());
                 tree3.print();
 
+                app.writeFile(tree3, "hello.txt");
+
             } catch (NumberFormatException e)
             {
-                System.out.println("Invalid power value: Value given is not a number");
+                System.out.println(e.getMessage());
             } catch (IllegalArgumentException e)
             {
                 System.out.println(e.getMessage());
